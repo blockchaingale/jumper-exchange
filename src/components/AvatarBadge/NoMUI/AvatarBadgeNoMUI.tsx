@@ -66,7 +66,7 @@ export const AvatarBadgeNoMUI = ({
             ...((badgeOffset?.x || badgeOffset?.y) && {
               transform: `translate(${badgeOffset?.x ? badgeOffset.x + (badgeGap ? badgeGap / 2 : 0) : 0}px, ${badgeOffset?.y ? badgeOffset.y + (badgeGap ? badgeGap / 2 : 0) : 0}px)`,
             }),
-            background: theme === 'dark' ? '#24203D' : '#ffffff',
+            background: theme === 'dark' ? '#1b1435' : '#ffffff',
           }}
         ></div>
         {badgeSrc ? (

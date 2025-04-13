@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import { PartnerThemeFooterImage } from './components/PartnerThemeFooterImage';
 import { Snackbar } from './components/Snackbar/Snackbar';
 import { SupportModal } from './components/SupportModal/SupportModal';
+import Footer from './components/Footer/Footer';
 
 interface LayoutProps {
   fixedPoweredBy?: boolean | undefined;
@@ -25,6 +26,7 @@ export const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
       <SupportModal />
       <Snackbar />
       <PartnerThemeFooterImage />
+      <Footer/>
     </>
   );
 };

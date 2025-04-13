@@ -60,7 +60,7 @@ const WidgetExpandedQuote = ({
           ...fieldContainerStyle,
           padding: `${extendedHeight ? 56 : 16}px 16px 16px`,
           ...(highlighted && {
-            boxShadow: `inset 0 0 0 2px ${theme === 'dark' ? '#653BA3' : '#31007A'}`,
+            boxShadow: `inset 0 0 0 2px ${theme === 'dark' ? '#4024b5' : '#31007A'}`,
           }),
           flexDirection: 'column',
           justifyContent: 'flex-start',

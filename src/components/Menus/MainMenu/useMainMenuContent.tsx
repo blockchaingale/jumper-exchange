@@ -24,7 +24,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import SchoolIcon from '@mui/icons-material/School';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import XIcon from '@mui/icons-material/X';
-import { Typography } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
@@ -36,6 +36,7 @@ export const useMainMenuContent = () => {
   const router = useRouter();
   const theme = useTheme();
   const pathname = usePathname();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Detect mobile screens
   const [themeMode, configTheme] = useThemeStore((state) => [
     state.themeMode,
     state.configTheme,
@@ -129,133 +130,159 @@ export const useMainMenuContent = () => {
         setSubMenuState(MenuKeysEnum.Language);
       },
     },
-    {
-      label: t('navbar.navbarMenu.developers'),
-      prefixIcon: <DeveloperModeIcon />,
-      triggerSubMenu: MenuKeysEnum.Devs,
-      onClick: () => {
-        setSubMenuState(MenuKeysEnum.Devs);
-        trackEvent({
-          category: TrackingCategory.MainMenu,
-          action: TrackingAction.OpenMenu,
-          label: `open_submenu_${MenuKeysEnum.Devs.toLowerCase()}`,
-          data: { [TrackingEventParameter.Menu]: MenuKeysEnum.Devs },
-        });
-      },
-    },
-    {
-      label: 'Jumper Profile',
-      prefixIcon: <AccountCircleIcon />,
-      showMoreIcon: false,
-      link: { url: JUMPER_LOYALTY_PATH },
-      onClick: () => {
-        trackEvent({
-          category: TrackingCategory.Menu,
-          label: 'click-jumper-pass-link',
-          action: TrackingAction.ClickJumperProfileLink,
-          data: { [TrackingEventParameter.Menu]: 'pass' },
-        });
-        closeAllMenus();
-        router.push(JUMPER_LOYALTY_PATH);
-      },
-    },
-    {
-      label: 'Jumper Learn',
-      prefixIcon: <SchoolIcon />,
-      showMoreIcon: false,
-      link: { url: JUMPER_LEARN_PATH },
-      onClick: () => {
-        trackEvent({
-          category: TrackingCategory.Menu,
-          label: 'click-jumper-learn-link',
-          action: TrackingAction.ClickJumperLearnLink,
-          data: { [TrackingEventParameter.Menu]: 'jumper_learn' },
-        });
-        closeAllMenus();
-        router.push(JUMPER_LEARN_PATH);
-      },
-    },
-    {
-      label: 'Jumper Scan',
-      prefixIcon: <SearchOutlinedIcon />,
-      showMoreIcon: false,
-      link: { url: JUMPER_SCAN_PATH, external: false },
-      onClick: () => {
-        trackEvent({
-          category: TrackingCategory.Menu,
-          label: 'open-jumper-scan',
-          action: TrackingAction.ClickJumperScanLink,
-          data: { [TrackingEventParameter.Menu]: 'jumper_scan' },
-        });
-      },
-    },
-    {
-      label: 'X',
-      prefixIcon: <XIcon />,
-      showMoreIcon: false,
-      onClick: () => {
-        trackEvent({
-          category: TrackingCategory.Menu,
-          label: 'click-x-link',
-          action: TrackingAction.ClickXLink,
-          data: { [TrackingEventParameter.Menu]: 'x-jumper' },
-        });
-        trackEvent({
-          category: TrackingCategory.Pageload,
-          action: TrackingAction.PageLoad,
-          label: 'pageload-x_jumper',
-          data: {
-            [TrackingEventParameter.PageloadSource]: TrackingCategory.Menu,
-            [TrackingEventParameter.PageloadDestination]: 'x-jumper',
-            [TrackingEventParameter.PageloadURL]: X_URL,
-            [TrackingEventParameter.PageloadExternal]: true,
-          },
-        });
-      },
-      link: { url: X_URL, external: true },
-    },
-    {
-      label: 'Discord',
-      prefixIcon: <Discord color={theme.palette.text.primary} />,
-      showMoreIcon: false,
-      onClick: () => {
-        trackEvent({
-          category: TrackingCategory.Menu,
-          label: 'click-discord-link',
-          action: TrackingAction.ClickDiscordLink,
-          data: { [TrackingEventParameter.Menu]: 'jumper_discord' },
-        });
-        trackEvent({
-          category: TrackingCategory.Pageload,
-          action: TrackingAction.PageLoad,
-          label: 'pageload-discord',
-          data: {
-            [TrackingEventParameter.PageloadSource]: TrackingCategory.MainMenu,
-            [TrackingEventParameter.PageloadDestination]: 'jumper_discord',
-            [TrackingEventParameter.PageloadURL]: DISCORD_URL,
-            [TrackingEventParameter.PageloadExternal]: true,
-          },
-        });
-      },
-      link: { url: DISCORD_URL, external: true },
-    },
-    {
-      label: t('navbar.navbarMenu.support'),
-      prefixIcon: (
-        <Discord
-          color={
-            theme.palette.mode === 'light'
-              ? theme.palette.primary.main
-              : theme.palette.white.main
-          }
-        />
-      ),
-      onClick: () => {
-        setSupportModalState(true);
-      },
-      showButton: true,
-    },
+    // {
+    //   label: t('navbar.navbarMenu.developers'),
+    //   prefixIcon: <DeveloperModeIcon />,
+    //   triggerSubMenu: MenuKeysEnum.Devs,
+    //   onClick: () => {
+    //     setSubMenuState(MenuKeysEnum.Devs);
+    //     trackEvent({
+    //       category: TrackingCategory.MainMenu,
+    //       action: TrackingAction.OpenMenu,
+    //       label: `open_submenu_${MenuKeysEnum.Devs.toLowerCase()}`,
+    //       data: { [TrackingEventParameter.Menu]: MenuKeysEnum.Devs },
+    //     });
+    //   },
+    // },
+    // {
+    //   label: 'Jumper Profile',
+    //   prefixIcon: <AccountCircleIcon />,
+    //   showMoreIcon: false,
+    //   link: { url: JUMPER_LOYALTY_PATH },
+    //   onClick: () => {
+    //     trackEvent({
+    //       category: TrackingCategory.Menu,
+    //       label: 'click-jumper-pass-link',
+    //       action: TrackingAction.ClickJumperProfileLink,
+    //       data: { [TrackingEventParameter.Menu]: 'pass' },
+    //     });
+    //     closeAllMenus();
+    //     router.push(JUMPER_LOYALTY_PATH);
+    //   },
+    // },
+    // {
+    //   label: 'Jumper Learn',
+    //   prefixIcon: <SchoolIcon />,
+    //   showMoreIcon: false,
+    //   link: { url: JUMPER_LEARN_PATH },
+    //   onClick: () => {
+    //     trackEvent({
+    //       category: TrackingCategory.Menu,
+    //       label: 'click-jumper-learn-link',
+    //       action: TrackingAction.ClickJumperLearnLink,
+    //       data: { [TrackingEventParameter.Menu]: 'jumper_learn' },
+    //     });
+    //     closeAllMenus();
+    //     router.push(JUMPER_LEARN_PATH);
+    //   },
+    // },
+    // {
+    //   label: 'Jumper Scan',
+    //   prefixIcon: <SearchOutlinedIcon />,
+    //   showMoreIcon: false,
+    //   link: { url: JUMPER_SCAN_PATH, external: false },
+    //   onClick: () => {
+    //     trackEvent({
+    //       category: TrackingCategory.Menu,
+    //       label: 'open-jumper-scan',
+    //       action: TrackingAction.ClickJumperScanLink,
+    //       data: { [TrackingEventParameter.Menu]: 'jumper_scan' },
+    //     });
+    //   },
+    // },
+    // {
+    //   label: 'X',
+    //   prefixIcon: <XIcon />,
+    //   showMoreIcon: false,
+    //   onClick: () => {
+    //     trackEvent({
+    //       category: TrackingCategory.Menu,
+    //       label: 'click-x-link',
+    //       action: TrackingAction.ClickXLink,
+    //       data: { [TrackingEventParameter.Menu]: 'x-jumper' },
+    //     });
+    //     trackEvent({
+    //       category: TrackingCategory.Pageload,
+    //       action: TrackingAction.PageLoad,
+    //       label: 'pageload-x_jumper',
+    //       data: {
+    //         [TrackingEventParameter.PageloadSource]: TrackingCategory.Menu,
+    //         [TrackingEventParameter.PageloadDestination]: 'x-jumper',
+    //         [TrackingEventParameter.PageloadURL]: X_URL,
+    //         [TrackingEventParameter.PageloadExternal]: true,
+    //       },
+    //     });
+    //   },
+    //   link: { url: X_URL, external: true },
+    // },
+    // {
+    //   label: 'Discord',
+    //   prefixIcon: <Discord color={theme.palette.text.primary} />,
+    //   showMoreIcon: false,
+    //   onClick: () => {
+    //     trackEvent({
+    //       category: TrackingCategory.Menu,
+    //       label: 'click-discord-link',
+    //       action: TrackingAction.ClickDiscordLink,
+    //       data: { [TrackingEventParameter.Menu]: 'jumper_discord' },
+    //     });
+    //     trackEvent({
+    //       category: TrackingCategory.Pageload,
+    //       action: TrackingAction.PageLoad,
+    //       label: 'pageload-discord',
+    //       data: {
+    //         [TrackingEventParameter.PageloadSource]: TrackingCategory.MainMenu,
+    //         [TrackingEventParameter.PageloadDestination]: 'jumper_discord',
+    //         [TrackingEventParameter.PageloadURL]: DISCORD_URL,
+    //         [TrackingEventParameter.PageloadExternal]: true,
+    //       },
+    //     });
+    //   },
+    //   link: { url: DISCORD_URL, external: true },
+    // },
+    // {
+    //   label: t('navbar.navbarMenu.support'),
+    //   prefixIcon: (
+    //     <Discord
+    //       color={
+    //         theme.palette.mode === 'light'
+    //           ? theme.palette.primary.main
+    //           : theme.palette.white.main
+    //       }
+    //     />
+    //   ),
+    //   onClick: () => {
+    //     setSupportModalState(true);
+    //   },
+    //   showButton: true,
+    // },
   ]);
+
+  if(isMobile) {
+    mainMenu = mainMenu.concat([
+      {
+        label: 'Trade',
+        prefixIcon: <></>,
+        onClick: () => {
+          window.location.href = 'https://defi.marbleland.io';
+        }
+      },
+      {
+        label: 'Market',
+        prefixIcon: <></>,
+        onClick: () => {
+          window.location.href = 'https://defi.marbleland.io/markets';
+        }
+      },
+      {
+        label: 'Dashboard',
+        prefixIcon: <></>,
+        onClick: () => {
+          window.location.href = 'https://defi.marbleland.io/portfolio';
+        }
+      }
+    ])
+  }
 
   return mainMenu;
   //Todo: to generate on the server side

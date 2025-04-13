@@ -86,13 +86,25 @@ export const WalletButtons = () => {
     }
   };
 
+  console.log('chains', chains)
+
   return (
     <>
       {!activeAccount?.address ? (
         <ConnectButton />
+        // <ConnectButton
+        // client={client}
+        // wallets={wallets}
+        // chains={chains}
+        // connectModal={{
+        //   size: "wide",
+        //   showThirdwebBranding: false,
+        // }}
+        // onClick={handleWalletMenuClick}
+        // /> 
       ) : (
         <Stack direction="row" spacing={2}>
-          {isDesktop && !pathname.includes(JUMPER_SCAN_PATH) && (
+          {/* {isDesktop && !pathname.includes(JUMPER_SCAN_PATH) && (
             <WalletMenuButton id="wallet-digest-button" onClick={handleXPClick}>
               <ImageWalletMenuButton
                 src={imgLink}
@@ -116,7 +128,17 @@ export const WalletButtons = () => {
               )}
               <XPIcon sx={{ width: 32, height: 32 }} />
             </WalletMenuButton>
-          )}
+          )} */}
+          {/* <ConnectButton
+          client={client}
+          wallets={wallets}
+          chains={chains}
+          connectModal={{
+            size: "wide",
+            showThirdwebBranding: false,
+          }}
+          onClick={handleWalletMenuClick}
+          />  */}
           <WalletMenuButton
             id="wallet-digest-button"
             onClick={handleWalletMenuClick}
@@ -144,6 +166,7 @@ export const WalletButtons = () => {
               {addressLabel ?? walletDigest(activeAccount?.address)}
             </WalletLabel>
           </WalletMenuButton>
+
         </Stack>
       )}
     </>

@@ -144,7 +144,7 @@ export const BadgeRelativeBox = styled(Box)(({ theme }) => ({
 export const AbsoluteCenterTraitsBox = styled(Box)(({ theme }) => ({
   position: 'absolute',
   cursor: 'help',
-  backgroundColor: '#653ba3', //'rgba(84, 49, 136, 0.4)',
+  backgroundColor: '#4024b5', //'rgba(84, 49, 136, 0.4)',
   borderRadius: '32px',
   padding: theme.spacing(0.5, 2),
   marginTop: theme.spacing(1),

@@ -505,7 +505,7 @@ const themeCustomized = createTheme({
       main: 'rgba(255, 255, 255, 0.08)',
     },
     alphaLight300: {
-      main: 'rgba(255, 255, 255, 0.12)',
+      main: '#1b1435', // 'rgba(255, 255, 255, 0.12)',
     },
     alphaLight400: {
       main: 'rgba(255, 255, 255, 0.16)',
@@ -812,7 +812,7 @@ export const lightTheme = createTheme(
         main: themeCustomized.palette.white.main,
       },
       bgQuaternary: {
-        hover: alpha('#653BA3', 0.12),
+        hover: alpha('#4024b5', 0.12),
         main: alpha('#31007A', 0.08),
       },
       primary: {
@@ -918,7 +918,7 @@ export const darkTheme = createTheme(
     palette: {
       mode: 'dark',
       background: {
-        default: '#120F29', //'#241D52',
+        default: '#080221', //'#241D52',
       },
       text: {
         primary: '#fff',
@@ -933,18 +933,19 @@ export const darkTheme = createTheme(
         dark: '#030014',
       },
       bgSecondary: {
-        main: alpha(themeCustomized.palette.white.main, 0.12),
+        main: alpha('#1b1435', 1),
+        // main: alpha(themeCustomized.palette.white.main, 0.12),
       },
       bgTertiary: {
         main: themeCustomized.palette.alphaLight200.main,
       },
       bgQuaternary: {
-        hover: alpha('#653BA3', 0.56),
-        main: alpha('#653BA3', 0.42),
+        hover: alpha('#4024b5', 0.56),
+        main: alpha('#4024b5', 0.42),
       },
       primary: {
-        light: '#653BA3',
-        main: '#653BA3',
+        light: '#4024b5',
+        main: '#4024b5',
         dark: '#543188',
       },
       secondary: {
@@ -958,9 +959,9 @@ export const darkTheme = createTheme(
         dark: '#33163D',
       },
       accent1: {
-        light: '#653BA3',
-        main: '#653BA3',
-        dark: '#653BA3',
+        light: '#4024b5',
+        main: '#4024b5',
+        dark: '#4024b5',
       },
       accent1Alt: {
         light: '#BEA0EB',
@@ -973,14 +974,14 @@ export const darkTheme = createTheme(
         dark: '#D35CFF',
       },
       surface1: {
-        light: '#120F29',
-        main: '#120F29',
-        dark: '#120F29',
+        light: '#080221',
+        main: '#080221',
+        dark: '#080221',
       },
       surface2: {
-        light: '#24203D',
-        main: '#24203D',
-        dark: '#24203D',
+        light: '#1b1435',
+        main: '#1b1435',
+        dark: '#1b1435',
       },
       surface3: {
         light: '#302B52',

@@ -33,7 +33,7 @@ export const WalletProvider: FC<PropsWithChildren> = ({ children }) => {
     providers: [EVM(), Solana(), UTXO()],
     integrator: process.env.NEXT_PUBLIC_WIDGET_INTEGRATOR,
     rpcUrls: {
-      ...JSON.parse(process.env.NEXT_PUBLIC_CUSTOM_RPCS),
+      // ...JSON.parse(process.env.NEXT_PUBLIC_CUSTOM_RPCS),
       ...publicRPCList,
     },
     preloadChains: true,

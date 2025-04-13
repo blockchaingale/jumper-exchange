@@ -20,7 +20,7 @@ export default async function MainLayout({ children }: PropsWithChildren) {
       <Layout>
         <App activeTheme={activeTheme}>{children}</App>
       </Layout>
-      <FeatureCards />
+      {/* <FeatureCards /> */}
     </>
   );
 }

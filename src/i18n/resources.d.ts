@@ -8,9 +8,12 @@ interface Resources {
   translation: {
     navbar: {
       welcome: {
-        title: 'Find the best route';
-        subtitle: '<0>4x audited</0> multi-chain liquidity aggregator';
-        cta: 'Get started';
+        // title: 'Find the best route';
+        title: 'All-in-one Defi Swap';
+        // subtitle: '<0>4x audited</0> multi-chain liquidity aggregator';
+        subtitle: 'Swap all chains, all coins in one place !!';
+        // cta: 'Get started';
+        cta: 'Swap Now';
       };
       links: {
         exchange: 'Exchange';

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: `${getSiteUrl()}`,
     images: [
       {
-        url: 'https://jumper.exchange/preview.png', // Default image
+        url: 'https://swap.marbleland.io/preview.png', // Default image
         width: 900,
         height: 450,
       },
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
   twitter: {
     // Twitter metadata
     // cardType: 'summary_large_image',
-    site: '@JumperExchange',
+    site: '@Marbleland',
     title: title, // Twitter title
     description,
-    images: 'https://jumper.exchange/preview.png', // Twitter image
+    images: 'https://swap.marbleland.io/preview.png', // Twitter image
   },
   icons: {
     // Icons metadata

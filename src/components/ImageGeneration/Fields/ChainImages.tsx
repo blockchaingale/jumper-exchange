@@ -25,7 +25,7 @@ const ChainImages = ({
           ...fieldContainerStyle,
           // padding: '0px 16px',
           ...(highlighted && {
-            boxShadow: `inset 0 0 0 2px ${theme === 'dark' ? '#653BA3' : '#31007A'}`,
+            boxShadow: `inset 0 0 0 2px ${theme === 'dark' ? '#4024b5' : '#31007A'}`,
           }),
           ...sx,
         }}

@@ -8,6 +8,7 @@ import { Box, Slide, Stack } from '@mui/material';
 import { VerticalTabs } from 'src/components/Menus/VerticalMenu';
 import type { PropsWithChildren } from 'react';
 import { useEffect } from 'react';
+import BackgroundVideo from 'src/components/BackgroundVideo/BackgroundVideo';
 
 export interface AppProps {
   activeTheme?: string;
@@ -47,6 +48,12 @@ const App = ({ activeTheme, children }: PropsWithChildren<AppProps>) => {
 
   return (
     <Box onClick={handleWelcomeScreenEnter}>
+      {/* Left Video */}
+      <BackgroundVideo src="https://api-v1.marbleland.io/public/videos/9.mp4" position="left" />
+
+      {/* Right Video */}
+      <BackgroundVideo src="https://api-v1.marbleland.io/public/videos/10.mp4" position="right" />
+
       <Slide
         direction="up"
         in={enabled && !welcomeScreenClosed}
@@ -75,7 +82,8 @@ const App = ({ activeTheme, children }: PropsWithChildren<AppProps>) => {
         alignItems="start"
         paddingTop={3.5}
       >
-        {welcomeScreenClosed && <VerticalTabs />}
+
+        {/* {welcomeScreenClosed && <VerticalTabs />} */}
         <WidgetContainer
           welcomeScreenClosed={!enabled || welcomeScreenClosed!}
           className="widget-container"

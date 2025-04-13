@@ -1,6 +1,6 @@
 {
-  "short_name": "Jumper Exchange",
-  "name": "Jumper Exchange",
+  "short_name": "Magic-Swap",
+  "name": "Magic Swap",
   "description": "Multi-Chain Bridging & Swapping",
   "icons": [
     {
@@ -34,11 +34,11 @@
     {
       "name": "Swap/Bridge",
       "short_name": "swap/bridge",
-      "description": "Swap/bridge via Jumper",
+      "description": "Swap/bridge via Magic",
       "url": "/?source=pwa",
       "icons": [
         {
-          "src": "/shortcut-icon.png",
+          "src": "/favicon.png",
           "sizes": "97x96"
         }
       ]
@@ -46,11 +46,11 @@
     {
       "name": "Gas",
       "short_name": "Gas",
-      "description": "Gas via Jumper",
+      "description": "Gas via Magic",
       "url": "/gas?source=pwa",
       "icons": [
         {
-          "src": "/shortcut-icon.png",
+          "src": "/favicon.png",
           "sizes": "97x96"
         }
       ]
@@ -58,11 +58,11 @@
     {
       "name": "Buy",
       "short_name": "Buy",
-      "description": "Buy on Jumper",
+      "description": "Buy on Magic",
       "url": "/buy?source=pwa",
       "icons": [
         {
-          "src": "/shortcut-icon.png",
+          "src": "/favicon.png",
           "sizes": "97x96"
         }
       ]
@@ -70,6 +70,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#653BA3",
+  "theme_color": "#4024b5",
   "background_color": "#ffffff"
 }

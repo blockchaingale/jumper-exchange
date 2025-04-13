@@ -18,10 +18,10 @@ test.describe('Landing page and navigation', () => {
   test('Should show again welcome screen when clicking jumper logo', async ({
     page,
   }) => {
-    const headerText = 'Find the best route';
+    const headerText = 'All-in-one Defi Swap';
     await page.locator('#jumper-logo').click();
     await closeWelcomeScreen(page);
-    await expect(headerText).toBe('Find the best route');
+    await expect(headerText).toBe('All-in-one Defi Swap');
   });
 
   test.skip('API test - Feature Cards', async ({ request }) => {

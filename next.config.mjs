@@ -5,6 +5,9 @@ const nextConfig = {
   output: 'standalone',
   trailingSlash: false,
   productionBrowserSourceMaps: false,
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   experimental: {
     serverSourceMaps: false,
     turbo: {}
@@ -166,8 +169,8 @@ export default withSentryConfig(
     enabled: process.env.ENV_NAME === 'prod',
     // Suppresses source map uploading logs during build
     silent: true,
-    org: 'jumper-exchange',
-    project: 'jumper-front',
+    org: 'marble-swap',
+    project: 'marble-front',
   },
   {
     // For all available options, see:

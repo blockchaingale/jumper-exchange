@@ -17,7 +17,7 @@ test.describe('Switch between dark and light theme and check the background colo
     await closeWelcomeScreen(page);
     await openOrCloseMainMenu(page);
     await switchTheme(page, Theme.Dark);
-    await expectBackgroundColorToHaveCss(page, 'rgb(18, 15, 41)');
+    await expectBackgroundColorToHaveCss(page, 'linear-gradient(to bottom right, #050A1F, #0A1433, #101C40)');
   });
 
   test.use({ colorScheme: 'light' });

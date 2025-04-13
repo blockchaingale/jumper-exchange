@@ -82,7 +82,7 @@ export const WidgetContainer = styled(Box, {
         style: {
           [theme.breakpoints.up('lg' as Breakpoint)]: {
             // extra marginRight-spacing of 56px (width of navbar-tabs + gap) needed to center properly while welcome-screen is closed
-            marginRight: `calc( ${theme.spacing(4)} + 56px )`,
+            // marginRight: `calc( ${theme.spacing(4)} + 56px )`,
           },
         },
       },
@@ -119,7 +119,7 @@ export const BackgroundFooterImage = styled(Image)(({ theme }) => ({
   transition: 'background-color 0.3s ease-in',
   borderRadius: '12px',
   [theme.breakpoints.up('sm' as Breakpoint)]: {
-    margin: theme.spacing(4),
+    // margin: theme.spacing(4),
     width: 400,
     height: 'auto',
   },

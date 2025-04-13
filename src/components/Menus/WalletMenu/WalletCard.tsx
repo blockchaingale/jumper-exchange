@@ -93,14 +93,22 @@ export const WalletCard = ({ account }: WalletCardProps) => {
 
   const handleScanButton = () => {
     account.chainId && closeAllMenus();
-    const url = `${JUMPER_SCAN_PATH}/wallet/${account.address}`;
+    // const url = `${JUMPER_SCAN_PATH}/wallet/${account.address}`;
 
-    trackEvent({
-      category: TrackingCategory.WalletMenu,
-      action: TrackingAction.OpenJumperScan,
-      label: 'open-jumper-scan-wallet',
-    });
-    router.push(url);
+    // trackEvent({
+    //   category: TrackingCategory.WalletMenu,
+    //   action: TrackingAction.OpenJumperScan,
+    //   label: 'open-jumper-scan-wallet',
+    // });
+    // router.push(url);
+
+    const transactionHistoryButton = document.querySelector(
+      'button[aria-label="Transaction history"]'
+    ) as HTMLButtonElement;
+  
+    if (transactionHistoryButton) {
+      transactionHistoryButton.click();
+    }
   };
 
   const handleCopyButton = () => {

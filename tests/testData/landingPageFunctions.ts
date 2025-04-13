@@ -2,7 +2,7 @@ import type { Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 
 export async function findTheBestRoute(page) {
-  await page.getByRole('heading', { name: 'Find the best route' });
+  await page.getByRole('heading', { name: 'All-in-one Defi Swap' });
 }
 
 export async function closeWelcomeScreen(page: Page) {
